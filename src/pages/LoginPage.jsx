@@ -17,7 +17,7 @@ const LoginPage = () => {
   return (
     <div className="px-5 w-full h-screen flex items-center justify-center bg-[#FEFEFF]">
       <div className="w-full md:w-[480px] bg-white shadow-gray-300 shadow-xl rounded-md p-5">
-        <h2 className="text-2xl mb-5 font-bold text-zinc-700">Login</h2>
+        <h2 className="text-2xl mb-5 font-bold text-zinc-700">Connexion</h2>
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col gap-2 mb-5">
             <label htmlFor="email" className="text-sm text-gray-500">
@@ -40,7 +40,7 @@ const LoginPage = () => {
 
           <div className="flex flex-col gap-2 mb-5">
             <label htmlFor="password" className="text-sm text-gray-500">
-              Password
+              Mot de passe
             </label>
             <input
               type="password"
@@ -69,7 +69,7 @@ const LoginPage = () => {
             </p>
           </div>
           <button className="w-full bg-sky-600 uppercase tracking-wide text-white flex items-center justify-center rounded-md p-4 font-semibold">
-            Login
+            Connexion
           </button>
         </form>
       </div>
