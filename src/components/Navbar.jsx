@@ -1,10 +1,5 @@
 import { Link } from "react-router-dom";
-import {
-  ChevronDownIcon,
-  Bars3Icon,
-  BellIcon,
-  EnvelopeIcon,
-} from "@heroicons/react/24/outline";
+import { ChevronDownIcon, Bars3Icon } from "@heroicons/react/24/outline";
 const Navbar = () => {
   return (
     <div className="w-full h-16 bg-white px-5 flex items-center justify-between shadow-gray-100 shadow-xl mb-10">
@@ -13,12 +8,6 @@ const Navbar = () => {
       </button>
 
       <div className="flex items-center gap-6">
-        <button className="text-zinc-700">
-          <EnvelopeIcon className="w-6 h-6" />
-        </button>
-        <button className="text-zinc-700">
-          <BellIcon className="w-6 h-6" />
-        </button>
         {/* Profile  */}
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
@@ -30,7 +19,7 @@ const Navbar = () => {
               />
             </div>
             <div className="text-xs">
-              <p className="text-gray-400">Welcome</p>
+              <p className="text-gray-400">Bienvenue</p>
               <p className="text-sm font-semibold text-zinc-700">
                 {JSON.parse(localStorage.getItem("user"))?.username}
               </p>

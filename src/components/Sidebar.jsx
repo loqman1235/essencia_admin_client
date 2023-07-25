@@ -8,7 +8,7 @@ import {
   MdOutlineLabel,
   MdOutlineReceipt,
   MdOutlineDashboard,
-  MdOutlineHelpOutline,
+  MdOutlineShield,
 } from "react-icons/md";
 import { BiCategoryAlt } from "react-icons/bi";
 import {
@@ -31,7 +31,8 @@ const Sidebar = () => {
           to="/"
           className="text-white font-bold text-xl tracking-tight flex items-center gap-2 border-b border-white/20 w-full py-5"
         >
-          <p className="tracking-tight">
+          <MdOutlineShield size={20} />
+          <p className="hidden md:block tracking-tight">
             Admin
             <span className="text-[#F6C442]">Area</span>
           </p>
