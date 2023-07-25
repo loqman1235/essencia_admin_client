@@ -101,7 +101,7 @@ const ProductsPage = () => {
                   <td>{product?.description.substring(0, 80)}...</td>
                   <td>{product?.volume}ml</td>
                   <td>${product?.price.toFixed(2)}</td>
-                  <td>{product?.brand.name}</td>
+                  <td>{product?.brand?.name}</td>
                   <td>
                     {moment(product?.createdAt).format("DD MMM YYYY HH:mm A")}
                   </td>
