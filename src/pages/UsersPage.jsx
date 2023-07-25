@@ -10,11 +10,14 @@ const UsersPage = () => {
   const getUsers = async () => {
     try {
       const token = Cookies.get("token");
-      const response = await axios.get(`http://localhost:3001/api/v1/users`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        `https://essencia-backend.onrender.com/api/v1/users`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       console.log(response.data);
       setUsers(response.data.users);
     } catch (error) {
@@ -32,7 +35,7 @@ const UsersPage = () => {
       const updatedUsers = users.filter((user) => user._id !== id);
       setUsers(updatedUsers); // Update the state immediately
       const response = await axios.delete(
-        `http://localhost:3001/api/v1/users/${id}`,
+        `https://essencia-backend.onrender.com/api/v1/users/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

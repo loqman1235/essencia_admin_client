@@ -14,9 +14,12 @@ const BrandsPage = () => {
   const navigate = useNavigate();
   const getBrands = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/api/v1/brands", {
-        withCredentials: true,
-      });
+      const response = await axios.get(
+        "https://essencia-backend.onrender.com/api/v1/brands",
+        {
+          withCredentials: true,
+        }
+      );
       console.log(response.data.brands);
       setBrands(response.data.brands);
     } catch (error) {
@@ -34,7 +37,7 @@ const BrandsPage = () => {
       const updatedBrands = brands.filter((brand) => brand._id !== id);
       setBrands(updatedBrands); // Update the state immediately
       const response = await axios.delete(
-        `http://localhost:3001/api/v1/brands/${id}`,
+        `https://essencia-backend.onrender.com/api/v1/brands/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -81,7 +84,7 @@ const BrandsPage = () => {
                       <div className="w-20 rounded-sm">
                         <img
                           className="object-cover w-full h-full"
-                          src={`http://localhost:3001/${brand?.image}`}
+                          src={`https://essencia-backend.onrender.com/${brand?.image}`}
                           alt={brand?.name}
                         />
                       </div>

@@ -24,7 +24,7 @@ const BrandCreatePage = () => {
       setLoading(true);
       const token = Cookies.get("token");
       const response = await axios.post(
-        "http://localhost:3001/api/v1/brands",
+        "https://essencia-backend.onrender.com/api/v1/brands",
         formData,
         {
           headers: {

@@ -26,7 +26,7 @@ const AuthContextProvider = ({ children }) => {
   const login = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3001/api/v1/admin/login",
+        "https://essencia-backend.onrender.com/api/v1/admin/login",
         inputs
       );
       if (response.status === 200) {

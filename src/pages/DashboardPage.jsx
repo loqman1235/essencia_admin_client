@@ -21,7 +21,7 @@ const DashboardPage = () => {
     try {
       const token = Cookies.get("token");
       const response = await axios.get(
-        "http://localhost:3001/api/v1/dashboard",
+        "https://essencia-backend.onrender.com/api/v1/dashboard",
         {
           headers: {
             Authorization: `Bearer ${token}`,

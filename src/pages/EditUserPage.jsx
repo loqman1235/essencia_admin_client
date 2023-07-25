@@ -26,7 +26,7 @@ const EditUserPage = () => {
     const token = Cookies.get("token");
     try {
       const response = await axios.get(
-        `http://localhost:3001/api/v1/users/${id}`,
+        `https://essencia-backend.onrender.com/api/v1/users/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -58,7 +58,7 @@ const EditUserPage = () => {
       setLoading(true);
       const token = Cookies.get("token");
       const response = await axios.put(
-        `http://localhost:3001/api/v1/users/${id}`,
+        `https://essencia-backend.onrender.com/api/v1/users/${id}`,
         inputs,
         {
           headers: {

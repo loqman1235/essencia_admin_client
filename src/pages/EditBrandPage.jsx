@@ -16,10 +16,12 @@ const EditBrandPage = () => {
   const getBrand = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3001/api/v1/brands/${id}`
+        `https://essencia-backend.onrender.com/api/v1/brands/${id}`
       );
       setName(response.data.brand.name);
-      setPhoto(`http://localhost:3001/${response.data.brand.image}`);
+      setPhoto(
+        `https://essencia-backend.onrender.com/${response.data.brand.image}`
+      );
     } catch (error) {
       console.log(error);
     }
@@ -40,7 +42,7 @@ const EditBrandPage = () => {
       setLoading(true);
       const token = Cookies.get("token");
       const response = await axios.put(
-        `http://localhost:3001/api/v1/brands/${id}`,
+        `https://essencia-backend.onrender.com/api/v1/brands/${id}`,
         formData,
         {
           headers: {

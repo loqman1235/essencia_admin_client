@@ -10,11 +10,14 @@ const OrdersPage = () => {
   const getOrders = async () => {
     try {
       const token = Cookies.get("token");
-      const response = await axios.get(`http://localhost:3001/api/v1/orders`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        `https://essencia-backend.onrender.com/api/v1/orders`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       console.log(response.data);
       setOrders(response.data.orders);
     } catch (error) {
@@ -39,7 +42,7 @@ const OrdersPage = () => {
     try {
       const token = Cookies.get("token");
       await axios.put(
-        `http://localhost:3001/api/v1/orders/${orderId}`,
+        `https://essencia-backend.onrender.com/api/v1/orders/${orderId}`,
         { deliveryStatus: newDeliveryStatus },
         {
           headers: {

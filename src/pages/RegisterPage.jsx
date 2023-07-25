@@ -19,7 +19,7 @@ const RegisterPage = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3001/api/v1/admin/register",
+        "https://essencia-backend.onrender.com/api/v1/admin/register",
         inputs
       );
       if (response.status === 200) {

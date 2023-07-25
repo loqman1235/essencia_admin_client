@@ -15,7 +15,7 @@ const ProductsPage = () => {
   const getProducts = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3001/api/v1/products",
+        "https://essencia-backend.onrender.com/api/v1/products",
         { withCredentials: true }
       );
       console.log(response.data.data);
@@ -35,7 +35,7 @@ const ProductsPage = () => {
       const updatedProducts = products.filter((product) => product._id !== id);
       setProducts(updatedProducts); // Update the state immediately
       const response = await axios.delete(
-        `http://localhost:3001/api/v1/products/${id}`,
+        `https://essencia-backend.onrender.com/api/v1/products/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -92,7 +92,7 @@ const ProductsPage = () => {
                     <div className="avatar">
                       <div className="w-10 rounded-sm">
                         <img
-                          src={`http://localhost:3001/${product?.images[0]}`}
+                          src={`https://essencia-backend.onrender.com/${product?.images[0]}`}
                         />
                       </div>
                     </div>

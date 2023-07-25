@@ -28,7 +28,7 @@ const CreatePage = () => {
     const getBrands = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/api/v1/brands",
+          "https://essencia-backend.onrender.com/api/v1/brands",
           { withCredentials: true }
         );
         setBrands(response.data.brands);
@@ -60,7 +60,7 @@ const CreatePage = () => {
       setLoading(true);
       const token = Cookies.get("token");
       const response = await axios.post(
-        "http://localhost:3001/api/v1/products",
+        "https://essencia-backend.onrender.com/api/v1/products",
         formData,
         {
           headers: {

@@ -32,9 +32,12 @@ const EditProductPage = () => {
   // Getting brands
   const getBrands = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/api/v1/brands", {
-        withCredentials: true,
-      });
+      const response = await axios.get(
+        "https://essencia-backend.onrender.com/api/v1/brands",
+        {
+          withCredentials: true,
+        }
+      );
       setBrands(response.data.brands);
     } catch (error) {
       console.error(error);
@@ -44,7 +47,7 @@ const EditProductPage = () => {
   const getProduct = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3001/api/v1/products/${id}`
+        `https://essencia-backend.onrender.com/api/v1/products/${id}`
       );
       if (response.data.success) {
         console.log(response.data.data);
@@ -90,7 +93,7 @@ const EditProductPage = () => {
       setLoading(true);
       const token = Cookies.get("token");
       const response = await axios.put(
-        `http://localhost:3001/api/v1/products/${id}`,
+        `https://essencia-backend.onrender.com/api/v1/products/${id}`,
         formData,
         {
           headers: {
@@ -263,7 +266,7 @@ const EditProductPage = () => {
                 <img
                   src={
                     typeof photo === "string"
-                      ? `http://localhost:3001/${photo}`
+                      ? `https://essencia-backend.onrender.com/${photo}`
                       : URL.createObjectURL(photo)
                   }
                   className="object-contain w-full h-full"
