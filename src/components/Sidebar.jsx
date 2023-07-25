@@ -31,7 +31,9 @@ const Sidebar = () => {
           to="/"
           className="text-white font-bold text-xl tracking-tight flex items-center gap-2 border-b border-white/20 w-full py-5"
         >
-          <MdOutlineShield size={20} />
+          <div className="w-full flex items-center justify-center md:hidden">
+            <MdOutlineShield size={20} />
+          </div>
           <p className="hidden md:block tracking-tight">
             Admin
             <span className="text-[#F6C442]">Area</span>
