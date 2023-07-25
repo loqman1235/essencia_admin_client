@@ -95,7 +95,7 @@ const CreatePage = () => {
           Créer un nouveau produit
         </h2>
       </div>
-      <div className="w-full flex gap-5">
+      <div className="w-full md:flex gap-5">
         <form onSubmit={handleAddProduct} encType="multipart/form-data">
           <div className="flex flex-col gap-1 mb-5">
             <label htmlFor="name" className="text-sm">

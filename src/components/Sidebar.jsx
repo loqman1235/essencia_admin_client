@@ -26,7 +26,7 @@ const Sidebar = () => {
   return (
     <aside className="bg-gradient-to-bl from-[#4F72DF] to-[#385ED1] w-[80px] md:w-[260px] h-screen fixed left-0 top-0 z-10">
       {/* Logo */}
-      <div className="w-full flex items-center px-5">
+      <div className="hidden w-full md:flex items-center px-5">
         <Link
           to="/"
           className="text-white font-bold text-xl tracking-tight flex items-center gap-2 border-b border-white/20 w-full py-5"
