@@ -122,7 +122,7 @@ const EditProductPage = () => {
           Modifier un produit
         </h2>
       </div>
-      <div className="w-full flex gap-5">
+      <div className="w-full md:flex gap-5">
         <form onSubmit={handleUpdateProduct} encType="multipart/form-data">
           <div className="flex flex-col gap-1 mb-5">
             <label htmlFor="name" className="text-sm">
@@ -256,7 +256,7 @@ const EditProductPage = () => {
           </button>
         </form>
 
-        <div className="flex flex-col gap-2 w-[400px]">
+        <div className="flex flex-col gap-2 w-full md:w-[400px]">
           {photos.length > 0 ? (
             photos.map((photo, index) => (
               <div

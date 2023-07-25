@@ -229,7 +229,7 @@ const CreatePage = () => {
           </button>
         </form>
 
-        <div className="flex flex-col gap-2 w-[400px]">
+        <div className="flex flex-col gap-2 w-full md:w-[400px]">
           {photos.length > 0 ? (
             [...photos].map((photo, index) => (
               <div

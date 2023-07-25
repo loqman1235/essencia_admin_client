@@ -53,7 +53,7 @@ const BrandCreatePage = () => {
           Créer une nouvelle marque
         </h2>
       </div>
-      <div className="w-full flex gap-5">
+      <div className="w-full md:flex gap-5">
         <form
           onSubmit={handleAddBrand}
           encType="multipart/form-data"
@@ -105,7 +105,7 @@ const BrandCreatePage = () => {
           </button>
         </form>
 
-        <div className="flex flex-col gap-2 w-[280px]">
+        <div className="flex flex-col gap-2 w-full md:w-[280px]">
           {photo ? (
             <div className="bg-gray-200 text-gray-300 w-full rounded-md h-[280px] mt-6 flex items-center justify-center">
               <img
