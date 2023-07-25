@@ -8,7 +8,7 @@ import {
   MdOutlineLabel,
   MdOutlineReceipt,
   MdOutlineDashboard,
-  MdShield,
+  MdOutlineShield,
 } from "react-icons/md";
 import { BiCategoryAlt } from "react-icons/bi";
 import {
@@ -26,12 +26,12 @@ const Sidebar = () => {
   return (
     <aside className="bg-gradient-to-bl from-[#4F72DF] to-[#385ED1] w-[80px] md:w-[260px] h-screen fixed left-0 top-0 z-10">
       {/* Logo */}
-      <div className="w-full flex items-center px-5">
+      <div className="w-full flex items-center justify-center md:justify-start px-5">
         <Link
           to="/"
           className="text-white font-bold text-xl tracking-tight flex items-center gap-2 border-b border-white/20 w-full py-5"
         >
-          <MdShield size={20} />
+          <MdOutlineShield size={20} />
           <p className="hidden md:block tracking-tight">
             Admin
             <span className="text-[#F6C442]">Area</span>
