@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   const { login, inputs, setInputs, loginErrors, errorMessage } =
@@ -58,6 +59,14 @@ const LoginPage = () => {
             {errorMessage && (
               <span className="text-red-600 text-sm">{errorMessage}</span>
             )}
+          </div>
+          <div className="mb-5 text-sm">
+            <p>
+              Vous n'avez pas de compte ?{" "}
+              <Link to="/register" className="text-success">
+                Inscrivez-vous.
+              </Link>
+            </p>
           </div>
           <button className="w-full bg-sky-600 uppercase tracking-wide text-white flex items-center justify-center rounded-md p-4 font-semibold">
             Login
