@@ -59,7 +59,7 @@ const OrdersPage = () => {
   return (
     <div>
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl tracking-tight font-medium text-zinc-700">
+        <h2 className="text-lg md:text-2xl tracking-tight font-medium text-zinc-700">
           Gérer les commandes
         </h2>
       </div>

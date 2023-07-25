@@ -118,7 +118,7 @@ const EditProductPage = () => {
   return (
     <>
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl tracking-tight font-medium text-zinc-700">
+        <h2 className="text-lg md:text-2xl tracking-tight font-medium text-zinc-700">
           Modifier un produit
         </h2>
       </div>
