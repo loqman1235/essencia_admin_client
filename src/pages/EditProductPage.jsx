@@ -263,10 +263,9 @@ const EditProductPage = () => {
                 key={index}
                 className="bg-gray-200 text-gray-300 w-full rounded-md h-[280px] mt-6 flex items-center justify-center p-5"
               >
-                {typeof photo === "string" &&
-                photo.startsWith("https://res.cloudinary.com/") ? ( // If it's a cloudinary URL, display the image directly
+                {typeof photo === "object" && photo.url ? ( // If it's an object with a 'url' property, display the image using the 'url'
                   <img
-                    src={photo}
+                    src={photo.url}
                     className="object-contain w-full h-full"
                     alt={`Product ${index}`}
                   />
