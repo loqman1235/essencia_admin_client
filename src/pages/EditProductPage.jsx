@@ -73,6 +73,23 @@ const EditProductPage = () => {
     getProduct();
   }, []);
 
+  useEffect(() => {
+    // Create object URLs for file objects
+    const urls = photos.map((photo) => {
+      if (typeof photo === "string") {
+        return photo; // For existing image URLs, use as-is
+      } else {
+        return URL.createObjectURL(photo); // For file objects, create an object URL
+      }
+    });
+    setObjectURLs(urls);
+
+    // Clean up object URLs when the component unmounts
+    return () => {
+      urls.forEach((url) => URL.revokeObjectURL(url));
+    };
+  }, [photos]);
+
   const handleUpdateProduct = async (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -257,25 +274,16 @@ const EditProductPage = () => {
         </form>
 
         <div className="flex flex-col gap-2 w-full md:w-[400px]">
-          {photos.length > 0 ? (
-            photos.map((photo, index) => (
+          {objectURLs.length > 0 ? (
+            objectURLs.map((url, index) => (
               <div
                 key={index}
                 className="bg-gray-200 text-gray-300 w-full rounded-md h-[280px] mt-6 flex items-center justify-center p-5"
               >
                 <img
-                  src={
-                    typeof photo === "string"
-                      ? photo.url
-                      : URL.createObjectURL(photo)
-                  }
+                  src={url}
                   className="object-contain w-full h-full"
                   alt={`Product ${index}`}
-                  onLoad={() => {
-                    if (typeof photo !== "string") {
-                      URL.revokeObjectURL(URL.createObjectURL(photo.url));
-                    }
-                  }}
                 />
               </div>
             ))
