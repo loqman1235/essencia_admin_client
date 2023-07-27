@@ -144,6 +144,9 @@ const OrdersPage = () => {
                         <option value="Expédié">Expédié</option>
                         <option value="Livré">Livré</option>
                       </select>
+                      <button className="bg-red-500 w-8 h-8 rounded-none flex items-center justify-center text-white">
+                        <TrashIcon className="w-5 h-5" />
+                      </button>
                     </td>
                   </td>
                 </tr>
