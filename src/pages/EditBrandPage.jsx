@@ -19,9 +19,7 @@ const EditBrandPage = () => {
         `https://essencia-backend.onrender.com/api/v1/brands/${id}`
       );
       setName(response.data.brand.name);
-      setPhoto(
-        `https://essencia-backend.onrender.com/${response.data.brand.image}`
-      );
+      setPhoto(response.data.brand.image.url);
     } catch (error) {
       console.log(error);
     }

@@ -84,7 +84,7 @@ const BrandsPage = () => {
                       <div className="w-20 rounded-sm">
                         <img
                           className="object-cover w-full h-full"
-                          src={`https://essencia-backend.onrender.com/${brand?.image}`}
+                          src={brand?.image.url}
                           alt={brand?.name}
                         />
                       </div>

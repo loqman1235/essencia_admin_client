@@ -266,14 +266,14 @@ const EditProductPage = () => {
                 <img
                   src={
                     typeof photo === "string"
-                      ? `https://essencia-backend.onrender.com/${photo}`
+                      ? photo.url
                       : URL.createObjectURL(photo)
                   }
                   className="object-contain w-full h-full"
                   alt={`Product ${index}`}
                   onLoad={() => {
                     if (typeof photo !== "string") {
-                      URL.revokeObjectURL(URL.createObjectURL(photo));
+                      URL.revokeObjectURL(URL.createObjectURL(photo.url));
                     }
                   }}
                 />
