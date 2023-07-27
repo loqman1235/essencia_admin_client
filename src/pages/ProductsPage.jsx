@@ -91,7 +91,7 @@ const ProductsPage = () => {
                   <th>
                     <div className="avatar">
                       <div className="w-10 rounded-sm">
-                        <img src={product?.images[0].url} />
+                        <img src={product?.images[0]?.url} />
                       </div>
                     </div>
                   </th>
