@@ -129,25 +129,23 @@ const OrdersPage = () => {
                       </div>
                     )}
                   </td>
-                  <td>
-                    <td>
-                      {/* Delivery Status */}
-                      <select
-                        value={order.deliveryStatus}
-                        className="p-2 outline-none bg-gray-50 border border-gray-100 rounded-sm"
-                        onChange={(e) => updateDeliveryStatus(e, order._id)}
-                      >
-                        <option value="En attente">En attente</option>
-                        <option value="En cours de livraison">
-                          En cours de livraison
-                        </option>
-                        <option value="Expédié">Expédié</option>
-                        <option value="Livré">Livré</option>
-                      </select>
-                      <button className="bg-red-500 w-8 h-8 rounded-none flex items-center justify-center text-white">
-                        <TrashIcon className="w-5 h-5" />
-                      </button>
-                    </td>
+                  <td className="flex items-center gap-1">
+                    {/* Delivery Status */}
+                    <select
+                      value={order.deliveryStatus}
+                      className="p-2 outline-none bg-gray-50 border border-gray-100 rounded-sm"
+                      onChange={(e) => updateDeliveryStatus(e, order._id)}
+                    >
+                      <option value="En attente">En attente</option>
+                      <option value="En cours de livraison">
+                        En cours de livraison
+                      </option>
+                      <option value="Expédié">Expédié</option>
+                      <option value="Livré">Livré</option>
+                    </select>
+                    <button className="bg-red-500 w-8 h-8 rounded-none flex items-center justify-center text-white">
+                      <TrashIcon className="w-5 h-5" />
+                    </button>
                   </td>
                 </tr>
               ))}
