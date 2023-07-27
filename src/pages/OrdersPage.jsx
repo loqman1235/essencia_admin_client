@@ -7,6 +7,27 @@ import moment from "moment";
 const OrdersPage = () => {
   const [orders, setOrders] = useState([]);
   const [deliveryStatus, setDeliveryStatus] = useState("");
+
+  const removeOrder = async (id) => {
+    try {
+      const token = Cookies.get("token");
+      const updatedOrders = orders.filter((order) => order._id !== id);
+      setOrders(updatedOrders); // Update the state immediately
+      const response = await axios.delete(
+        `https://essencia-backend.onrender.com/api/v1/orders/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const getOrders = async () => {
     try {
       const token = Cookies.get("token");
@@ -129,7 +150,7 @@ const OrdersPage = () => {
                       </div>
                     )}
                   </td>
-                  <td className="flex items-center gap-1">
+                  <td className="flex items-center gap-2">
                     {/* Delivery Status */}
                     <select
                       value={order.deliveryStatus}
@@ -143,7 +164,10 @@ const OrdersPage = () => {
                       <option value="Expédié">Expédié</option>
                       <option value="Livré">Livré</option>
                     </select>
-                    <button className="bg-red-500 w-8 h-8 rounded-none flex items-center justify-center text-white">
+                    <button
+                      onClick={removeOrder(order._id)}
+                      className="bg-red-500 w-8 h-8 rounded-none flex items-center justify-center text-white"
+                    >
                       <TrashIcon className="w-5 h-5" />
                     </button>
                   </td>
