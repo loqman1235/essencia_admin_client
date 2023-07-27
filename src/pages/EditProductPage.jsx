@@ -17,7 +17,6 @@ const EditProductPage = () => {
   const [brands, setBrands] = useState([]);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
-  const [objectURLs, setObjectURLs] = useState([]);
   const { id } = useParams();
 
   const handleChange = (e) => {
@@ -73,13 +72,6 @@ const EditProductPage = () => {
   useEffect(() => {
     getProduct();
   }, []);
-
-  useEffect(() => {
-    // Clean up object URLs when the component unmounts
-    return () => {
-      objectURLs.forEach((url) => URL.revokeObjectURL(url));
-    };
-  }, [objectURLs]);
 
   const handleUpdateProduct = async (e) => {
     e.preventDefault();
@@ -271,7 +263,8 @@ const EditProductPage = () => {
                 key={index}
                 className="bg-gray-200 text-gray-300 w-full rounded-md h-[280px] mt-6 flex items-center justify-center p-5"
               >
-                {typeof photo === "string" ? ( // If it's a cloudinary URL, display the image directly
+                {typeof photo === "string" &&
+                photo.startsWith("https://res.cloudinary.com/") ? ( // If it's a cloudinary URL, display the image directly
                   <img
                     src={photo}
                     className="object-contain w-full h-full"
