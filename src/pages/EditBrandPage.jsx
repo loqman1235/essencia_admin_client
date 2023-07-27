@@ -34,7 +34,10 @@ const EditBrandPage = () => {
 
     const formData = new FormData();
     formData.append("name", name);
-    formData.append("image", photo);
+      if (photo) {
+      formData.append("image", photo);
+    }
+
 
     try {
       setLoading(true);
