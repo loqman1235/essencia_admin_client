@@ -76,16 +76,31 @@ const EditProductPage = () => {
   const handleUpdateProduct = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    // Append only new images selected in the file input
+    // Check if there are new images selected in the file input
+    let hasNewImages = false;
     for (let i = 0; i < photos.length; i++) {
-      if (typeof photos[i] === "object" && photos[i].url) {
-        // This is an existing image, re-add it to the form data
-        formData.append("photos", photos[i].url);
-      } else {
-        // This is a new image, add the file object to the form data
-        formData.append("photos", photos[i]);
+      if (
+        typeof photos[i] !== "object" ||
+        (typeof photos[i] === "object" && photos[i].url === undefined)
+      ) {
+        hasNewImages = true;
+        break;
       }
     }
+
+    // Append the photos to formData only if there are new images
+    if (hasNewImages) {
+      for (let i = 0; i < photos.length; i++) {
+        if (typeof photos[i] === "object" && photos[i].url) {
+          // This is an existing image, re-add it to the form data
+          formData.append("photos", photos[i].url);
+        } else {
+          // This is a new image, add the file object to the form data
+          formData.append("photos", photos[i]);
+        }
+      }
+    }
+
     formData.append("name", inputs.name);
     formData.append("description", inputs.description);
     formData.append("volume", inputs.volume);
