@@ -75,21 +75,11 @@ const EditProductPage = () => {
   }, []);
 
   useEffect(() => {
-    // Create object URLs for file objects
-    const urls = photos.map((photo) => {
-      if (typeof photo === "string") {
-        return photo; // For existing image URLs, use as-is
-      } else {
-        return URL.createObjectURL(photo); // For file objects, create an object URL
-      }
-    });
-    setObjectURLs(urls);
-
     // Clean up object URLs when the component unmounts
     return () => {
-      urls.forEach((url) => URL.revokeObjectURL(url));
+      objectURLs.forEach((url) => URL.revokeObjectURL(url));
     };
-  }, [photos]);
+  }, [objectURLs]);
 
   const handleUpdateProduct = async (e) => {
     e.preventDefault();
@@ -275,17 +265,26 @@ const EditProductPage = () => {
         </form>
 
         <div className="flex flex-col gap-2 w-full md:w-[400px]">
-          {objectURLs.length > 0 ? (
-            objectURLs.map((url, index) => (
+          {photos.length > 0 ? (
+            photos.map((photo, index) => (
               <div
                 key={index}
                 className="bg-gray-200 text-gray-300 w-full rounded-md h-[280px] mt-6 flex items-center justify-center p-5"
               >
-                <img
-                  src={url}
-                  className="object-contain w-full h-full"
-                  alt={`Product ${index}`}
-                />
+                {typeof photo === "string" ? ( // If it's a cloudinary URL, display the image directly
+                  <img
+                    src={photo}
+                    className="object-contain w-full h-full"
+                    alt={`Product ${index}`}
+                  />
+                ) : (
+                  // If it's a file object, create an object URL
+                  <img
+                    src={URL.createObjectURL(photo)}
+                    className="object-contain w-full h-full"
+                    alt={`Product ${index}`}
+                  />
+                )}
               </div>
             ))
           ) : (
