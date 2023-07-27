@@ -17,6 +17,7 @@ const EditProductPage = () => {
   const [brands, setBrands] = useState([]);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
+  const [objectURLs, setObjectURLs] = useState([]);
   const { id } = useParams();
 
   const handleChange = (e) => {
